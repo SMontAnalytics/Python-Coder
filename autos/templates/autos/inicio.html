@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{ titulo }}{% endblock %}
+
+{% block contenido %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">¡Bienvenido a nuestro Concesionario de Autos!</h1>
+        <p class="lead">Encuentra el auto de tus sueños con nosotros.</p>
+        <hr class="my-4">
+        <p>Explora nuestra amplia selección de vehículos nuevos y usados.</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'lista_autos' %}" role="button">Ver Autos Disponibles</a>
+        </p>
+    </div>
+{% endblock %}
+

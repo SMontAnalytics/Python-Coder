@@ -1,0 +1,44 @@
+{# concesionario_autos/templates/base.html #}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Concesionario de Autos{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> {# Asumiendo que Bootstrap está en static/css #}
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'inicio' %}">Mi Concesionario</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'lista_autos' %}">Autos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'acerca_de' %}">Acerca de</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'perfil' %}">Perfil ({{ user.username }})</a></li>
+                         <form action="{% url 'logout' %}" method="post" style="display: inline;"> 
+                                {% csrf_token %} 
+                                <button type="submit" class="nav-link" style="background: none; border: none; padding: 0; color: inherit; cursor: pointer;">Cerrar Sesión</button>
+                            </form>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">Registrarse</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block contenido %}
+        {# Contenido específico de cada página irá aquí #}
+        {% endblock %}
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script> 
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

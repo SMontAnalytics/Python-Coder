@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Borrar Auto{% endblock %}
+
+{% block contenido %}
+    <h1>Confirmar Eliminación</h1>
+    <div class="alert alert-warning" role="alert">
+        ¿Estás seguro de que quieres eliminar el auto "<strong>{{ auto.marca }} {{ auto.modelo }}</strong>"?
+        Esta acción no se puede deshacer.
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+        <a href="{% url 'detalle_auto' auto.pk %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
+

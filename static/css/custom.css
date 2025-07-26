@@ -1,0 +1,103 @@
+/* custom.css */
+
+/* Variables CSS para definir tus colores principales (opcional, pero útil) */
+:root {
+    --primary-blue: #0056b3; /* Un azul un poco más oscuro y serio */
+    --secondary-blue: #3498db; /* Un azul más vibrante para acentos */
+    --dark-gray: #212529;    /* Negro casi puro para fondos o texto principal */
+    --light-gray: #adb5bd;   /* Plateado/gris para texto secundario */
+    --background-light: #f8f9fa; /* Fondo claro general */
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--background-light); /* Un fondo ligeramente gris/claro */
+    color: var(--dark-gray); /* Color de texto general */
+    font-family: 'Arial', sans-serif; /* Puedes cambiar la fuente */
+}
+
+/* Navbar (barra de navegación) */
+.navbar {
+    background-color: var(--dark-gray) !important; /* Fondo negro para la barra de navegación */
+    border-bottom: 3px solid var(--primary-blue); /* Borde azul debajo de la barra */
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: var(--light-gray) !important; /* Texto plateado para los enlaces */
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--secondary-blue) !important; /* Azul más vibrante al pasar el ratón */
+}
+
+/* Jumbotron (sección de inicio) */
+.jumbotron {
+    background-color: var(--primary-blue); /* Fondo azul para el jumbotron */
+    color: var(--white); /* Texto blanco */
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: .3rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Sombra de texto para mejorar la legibilidad */
+}
+
+/* Botones principales */
+.btn-primary {
+    background-color: var(--secondary-blue); /* Botón principal azul vibrante */
+    border-color: var(--secondary-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-blue); /* Azul más oscuro al pasar el ratón */
+    border-color: var(--primary-blue);
+}
+
+/* Tarjetas (cards) de autos */
+.card {
+    border: 1px solid var(--light-gray); /* Borde plateado/gris para las tarjetas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave para un efecto 3D */
+    transition: transform 0.2s ease-in-out; /* Animación al pasar el ratón */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+}
+
+.card-title {
+    color: var(--primary-blue); /* Títulos de tarjeta en azul */
+}
+
+.card-text {
+    color: var(--dark-gray); /* Texto de tarjeta en gris oscuro */
+}
+
+/* Footer (si decides añadir uno) */
+/*
+.footer {
+    background-color: var(--dark-gray);
+    color: var(--light-gray);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+*/
+
+/* Otros elementos que quieras estilizar */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-blue); /* Títulos en azul */
+}
+
+p {
+    line-height: 1.6; /* Mejorar la legibilidad de los párrafos */
+}
+
+/* Estilo para los campos de formulario (opcional) */
+.form-control {
+    border-color: var(--light-gray);
+}
+
+.form-control:focus {
+    border-color: var(--secondary-blue);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25); /* Sombra de enfoque azul */
+}

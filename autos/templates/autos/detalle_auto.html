@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}{{ auto.marca }} {{ auto.modelo }}{% endblock %}
+
+{% block contenido %}
+    <div class="card mb-4">
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% if auto.imagen %}
+                    <img src="{{ auto.imagen.url }}" class="img-fluid rounded-start" alt="{{ auto.marca }} {{ auto.modelo }}">
+                {% else %}
+                    <img src="{% static 'img/default_car.png' %}" class="img-fluid rounded-start" alt="Imagen no disponible">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h1 class="card-title">{{ auto.marca }} {{ auto.modelo }}</h1>
+                    <p class="card-text"><strong>Año:</strong> {{ auto.anio }}</p>
+                    <p class="card-text"><strong>Publicado el:</strong> {{ auto.fecha_publicacion|date:"d M, Y" }}</p>
+                    {% if auto.descripcion %}
+                        <p class="card-text"><strong>Descripción:</strong> {{ auto.descripcion }}</p>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                        <div class="mt-3">
+                            <a href="{% url 'editar_auto' auto.pk %}" class="btn btn-warning">Editar</a>
+                            <a href="{% url 'borrar_auto' auto.pk %}" class="btn btn-danger">Borrar</a>
+                        </div>
+                    {% endif %}
+                    <hr>
+                    <a href="{% url 'lista_autos' %}" class="btn btn-secondary">Volver al Listado</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

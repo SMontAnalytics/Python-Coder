@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    {% if form.instance.pk %}Editar Auto{% else %}Crear Nuevo Auto{% endif %}
+{% endblock %}
+
+{% block contenido %}
+    <h1>{% if form.instance.pk %}Editar Auto{% else %}Crear Nuevo Auto{% endif %}</h1>
+    <form method="post" enctype="multipart/form-data"> {# IMPORTANTE: enctype para subir archivos #}
+        {% csrf_token %}
+        {{ form.as_p }} {# Esto renderiza los campos del formulario como párrafos #}
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{% url 'lista_autos' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
+
