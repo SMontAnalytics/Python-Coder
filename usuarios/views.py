@@ -30,7 +30,7 @@ def registro(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-           
+            
             PerfilUsuario.objects.create(user=user)
             login(request, user) 
             return redirect('perfil') 
@@ -54,7 +54,7 @@ class EditarPerfilView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = UserEditForm
     template_name = 'usuarios/editar_perfil.html'
-    success_url = reverse_lazy('perfil') 
+    success_url = reverse_lazy('perfil')
 
     def get_object(self, queryset=None):
         return self.request.user 

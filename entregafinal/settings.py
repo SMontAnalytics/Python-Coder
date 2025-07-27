@@ -60,10 +60,10 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'entregafinal.context_processors.perfil_context',
             ],
         },
     },
@@ -121,10 +121,12 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static', 
 ]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 # imagenes/settings.py
 MEDIA_URL = '/media/'
@@ -133,3 +135,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # redireccionamiento/settings.py
 
 LOGIN_URL = '/usuarios/login/' 
+LOGIN_REDIRECT_URL = '/usuarios/perfil/'
+LOGOUT_REDIRECT_URL = '/' 
+

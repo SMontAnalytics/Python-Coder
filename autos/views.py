@@ -3,13 +3,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.auth.decorators import login_required
 from django.db.models import Q 
 from .models import Auto
 from .forms import AutoForm
 
 
-@login_required
+
 def vista_inicio(request):
     """Vista de inicio del concesionario."""
     return render(request, 'autos/inicio.html', {'titulo': 'Bienvenido al Concesionario'})
@@ -18,7 +17,7 @@ def acerca_de(request):
     """Vista 'Acerca de mi' o 'About'."""
     return render(request, 'autos/acerca_de.html')
 
-#  Vistas basadas en clases 
+# Vistas basadas en clases
 
 class AutoListView(ListView):
     """Vista de listado de autos."""
@@ -67,6 +66,7 @@ class AutoCreateView(LoginRequiredMixin, CreateView):
     form_class = AutoForm 
     template_name = 'autos/crear_auto.html'
     success_url = reverse_lazy('lista_autos') 
+
     
 
 
@@ -80,7 +80,7 @@ class AutoUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
    
     def test_func(self):
-        
+      
         return self.request.user.is_authenticated 
 
 
@@ -92,5 +92,5 @@ class AutoDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     
     def test_func(self):
-       
+        
         return self.request.user.is_authenticated
