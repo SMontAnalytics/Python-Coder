@@ -8,7 +8,7 @@ class Auto(models.Model):
     anio = models.IntegerField() 
     imagen = models.ImageField(upload_to='autos_imagenes/')
     fecha_publicacion = models.DateField(default=timezone.now)
-    descripcion = models.TextField(blank=True, null=True) # Campo adicional a elección
+    descripcion = models.TextField(blank=True, null=True) 
 
     def __str__(self):
         return f"{self.marca} {self.modelo} ({self.anio})"

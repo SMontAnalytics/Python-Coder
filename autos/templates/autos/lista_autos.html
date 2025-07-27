@@ -27,7 +27,7 @@
                         {% if auto.imagen %}
                             <img src="{{ auto.imagen.url }}" class="card-img-top" alt="{{ auto.marca }} {{ auto.modelo }}" style="height: 200px; object-fit: cover;">
                         {% else %}
-                            <img src="{% static 'img/default_car.png' %}" class="card-img-top" alt="Imagen no disponible" style="height: 200px; object-fit: cover;"> {# Asegúrate de tener una imagen por defecto #}
+                            <img src="{% static 'img/default_car.png' %}" class="card-img-top" alt="Imagen no disponible" style="height: 200px; object-fit: cover;"> 
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ auto.marca }} {{ auto.modelo }}</h5>

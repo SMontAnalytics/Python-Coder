@@ -12,15 +12,13 @@ class UserRegisterForm(UserCreationForm):
         fields = ['username', 'email']
 
 class UserEditForm(UserChangeForm):
-    # Elimina el campo de password para no mostrarlo directamente aquí
+   
     password = None
 
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']
-        # Si no quieres que se cambie el username directamente aquí, quítalo
-        # fields = ['email', 'first_name', 'last_name']
-
+       
 
 class PerfilUsuarioForm(forms.ModelForm):
     class Meta:

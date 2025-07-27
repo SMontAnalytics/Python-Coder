@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'entregafinal.context_processors.perfil_context',
             ],
         },
     },
@@ -133,3 +134,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # redireccionamiento/settings.py
 
 LOGIN_URL = '/usuarios/login/' 
+LOGIN_REDIRECT_URL = '/usuarios/perfil/'
+LOGOUT_REDIRECT_URL = '/' 
