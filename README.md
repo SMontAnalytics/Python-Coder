@@ -13,8 +13,8 @@ Esta es una aplicación web desarrollada con Django, consiste en un concesionari
 
 ## 🛠️ Tecnologías Utilizadas
 
-* **Lenguaje:** [Python 3.x]
-* **Framework Web:** [Django]
+* **Lenguaje:** Python 3.
+* **Framework Web:** Django
 * **Base de Datos:** SQLite (desarrollo)
 * **Frontend:** HTML5, CSS3, Bootstrap 5.
 * **Control de Versiones:** Git & GitHub.
